@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERUNTUK REYY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        utama: {
+                            krem: '#F9F2E4',
+                            kremTerang: '#FFF8EA',
+                            kremPucat: '#FFFDF7',
+                            kremTua: '#E8D9BF',
+                            coklat: '#5C3D2E'
+                        },
+                        netral: {
+                            hitam: '#121212',
+                            hitamGelap: '#000000',
+                            abu: '#2A2A2A',
+                            putih: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive'],
+                        elegant: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+      <style>
+         .animasi-pendamping {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            height: 55px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        
+        .lapisan-gradasi {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(18, 18, 18, 0.25) 25%,
+                rgba(0, 0, 0, 0.4) 50%,
+                rgba(18, 18, 18, 0.25) 75%,
+                transparent 100%
+            );
+            border-radius: 999px;
+            animation: gradasi-gerak 7s ease-in-out infinite;
+        }
+
+         .garis-utama {
+            position: relative;
+            width: 80%;
+            height: 2.5px;
+            background: rgba(249, 242, 228, 0.18);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .efek-kilau {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                #F9F2E4,
+                #E8D9BF,
+                transparent
+            );
+            animation: kilau-bergerak 3.8s linear infinite;
+        }
+
+       .titik-aksen {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #E8D9BF;
+            box-shadow: 0 0 8px rgba(249, 242, 228, 0.7);
+            animation: titik-muncul 5.5s linear infinite;
+        }
+
+        .titik-aksen:nth-child(1) { top: 12px; left: 12%; animation-delay: 0s; }
+        .titik-aksen:nth-child(2) { top: 42px; left: 38%; animation-delay: 1.3s; }
+        .titik-aksen:nth-child(3) { top: 18px; left: 62%; animation-delay: 2.6s; }
+        .titik-aksen:nth-child(4) { top: 38px; left: 85%; animation-delay: 3.9s; }
+
+    
+       0%, 100% { transform: scaleX(0.94); opacity: 0.75; }
+            50% { transform: scaleX(1.06); opacity: 1; }
+        }
+
+        @keyframes kilau-bergerak {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes titik-muncul {
+            0% { transform: translateX(-25px) scale(0); opacity: 0; }
+            30% { opacity: 0.9; }
+            60% { transform: translateX(25px) scale(1); opacity: 0.6; }
+            100% { transform: translateX(70px) scale(0); opacity: 0; }
+        }
+
+          body {
+            background: linear-gradient(135deg, #F9F2E4 0%, #FFF8EA 35%, #E8D9BF 70%, #121212 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 50px 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .contoh-judul {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            color: #121212;
+            text-align: center;
+            margin: 0 0 12px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+    </style>
+      <style>
+        body {
+            background: linear-gradient(135deg, #000000, #1A1A1A, #E8D9BF, #F9F2E4);
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .judul {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            color: #F9F2E4;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+         .garis-berkilau {
+            position: relative;
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        .garis-berkilau::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.8),
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            animation: gerak-kilau 1.5s linear infinite;
+        }
+
+        @keyframes gerak-kilau {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+    :root {
+      --black: #000000;
+      --soft-black: #121212;
+      --dark-gray: #2a2723;
+      --cream: #efe5d5;
+      --warm-cream: #e5d4bb;
+      --light-cream: #f8f2e6;
+      --text-dark: #1f1f1f;
+      --text-light: #f5f2eb;
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 20px 60px rgba(0,0,0,0.22);
+      --radius: 28px;
+      --transition: 0.35s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text-light);
+        background: linear-gradient(180deg, 
+        var(--black) 0%, 
+        var(--soft-black) 35%, 
+        var(--dark-gray) 58%, 
+        var(--cream) 85%, 
+        var(--light-cream) 100%
+      );
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: min(1180px, 92vw);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 5vw, 42px);
+      margin-bottom: 12px;
+      color: var(--text-light);
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+      opacity: 0.85;
+      color: var(--text-light);
+    }
+
+    .gallery-shell {
+      background: rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 18px 55px rgba(0,0,0,0.3);
+      border-radius: var(--radius);
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .slider-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #000000;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.45s ease;
+      touch-action: pan-y;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+      background: #000000;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 70vh;
+      min-height: 380px;
+      max-height: 760px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%);
+    }
+
+    .slide-caption {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      right: 20px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.75));
+      color: white;
+      backdrop-filter: blur(6px);
+    }
+
+    .slide-caption strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.9);
+      color: #000;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 2;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: var(--transition);
+    }
+
+    .nav-btn:hover {
+      background: white;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .nav-btn.prev { left: 16px; }
+    .nav-btn.next { right: 16px; }
+
+    .thumbs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .thumb {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      background: #000;
+    }
+
+    .thumb.active {
+      border-color: #b89566;
+      box-shadow: 0 8px 20px rgba(184,149,102,0.35);
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 92px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%);
+      opacity: 0.92;
+    }
+
+    .counter {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    .progress {
+      width: min(360px, 100%);
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.2);
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 5%;
+      background: linear-gradient(90deg, #e5d4bb, #b89566, #fff3d7);
+      transition: width 0.35s ease;
+    }
+
+    @media (max-width: 960px) {
+      .thumbs {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .thumbs {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .thumb img {
+        height: 78px;
+      }
+
+      .slide img {
+        height: 54vh;
+        min-height: 280px;
+      }
+
+      .nav-btn {
+        width: 44px;
+        height: 44px;
+      }
+    }
+  </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+        .bg-gradient-krem {
+            background: linear-gradient(135deg, #F9F2E4 0%, #FFF8EA 30%, #E8D9BF 60%, #121212 100%);
+        }
+        .text-shadow-krem {
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+        }
+        .heartbeat {
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .wheel-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 30px auto;
+        }
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 5px solid #121212;
+            position: relative;
+            overflow: hidden;
+            transition: transform 4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            background: conic-gradient(
+                #E8D9BF 0deg 72deg,
+                #F9F2E4 72deg 144deg,
+                #FFF8EA 144deg 216deg,
+                #E8D9BF 216deg 288deg,
+                #121212 288deg 360deg
+            );
+        }
+        .wheel-item {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            transform-origin: bottom right;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #121212;
+            font-size: 14px;
+            text-shadow: 0 0 5px rgba(255,255,255,0.6);
+        }
+        .item1 { transform: rotate(0deg) skewY(-72deg); }
+        .item2 { transform: rotate(72deg) skewY(-72deg); }
+        .item3 { transform: rotate(144deg) skewY(-72deg); }
+        .item4 { transform: rotate(216deg) skewY(-72deg); }
+        .item5 { transform: rotate(288deg) skewY(-72deg); }
+        .item-text { transform: skewY(72deg) rotate(36deg); }
+
+        .arrow {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 30px solid #121212;
+            z-index: 10;
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+        }
+
+        .center-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #F9F2E4;
+            border: 3px solid #121212;
+            color: #121212;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        #confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .emoji-fall {
+            position: absolute;
+            font-size: 40px;
+            animation: fall linear;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+        .video-wrapper {
+            background: #000000;
+            position: relative;
+        }
+        .video-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            pointer-events: none;
+        }
+    </style>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass {
+                background: rgba(249, 242, 228, 0.85);
+                backdrop-filter: blur(15px);
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            }
+           
+            .bg-gradient-krem {
+                background: linear-gradient(135deg, #F9F2E4 0%, #FFF8EA 35%, #E8D9BF 70%, #121212 100%);
+            }
+            .text-shadow-krem {
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            }
+            .float-animation {
+                animation: float 6s ease-in-out infinite;
+            }
+            .fade-up {
+                animation: fadeUp 1.5s ease-out;
+            }
+            .pulse-soft {
+                animation: pulseSoft 3s ease-in-out infinite;
+            }
+            .bounce-wa {
+                animation: bounceWA 2s infinite;
+            }
+            .ring-wa {
+                animation: ring 2s infinite;
+            }
+            #loveBackground {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 1;
+                overflow: hidden;
+            }
+            .love-fall {
+                position: absolute;
+                font-size: 30px;
+                animation: loveFall 5s linear infinite;
+            }
+            .text-marquee {
+                animation: marquee 20s linear infinite;
+            }
+            @keyframes marquee {
+                0% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
+            }
+            @keyframes loveFall {
+                0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            }
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
+            }
+            @keyframes fadeUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes pulseSoft {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.8; }
+            }
+            @keyframes bounceWA {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            @keyframes ring {
+                0% { transform: rotate(0deg); }
+                25% { transform: rotate(-10deg); }
+                50% { transform: rotate(0deg); }
+                75% { transform: rotate(10deg); }
+                100% { transform: rotate(0deg); }
+            }
+            @keyframes bounceIn {
+                0% { transform: scale(0.8); opacity: 0; }
+                70% { transform: scale(1.1); }
+                100% { transform: scale(1); opacity: 1; }
+            }
+        }
+     </style>
+</head>
+<script>
+   const emojis = ['🌹', '🤍', '✨', '🌹', '🌹'];
+    function createLove() {
+        const love = document.createElement('div');
+        love.classList.add('love-fall');
+        love.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        love.style.left = Math.random() * 100 + 'vw';
+        love.style.animationDuration = Math.random() * 3 + 3 + 's';
+        love.style.fontSize = Math.random() * 20 + 15 + 'px';
+        
+        document.getElementById('loveBackground').appendChild(love);
+        setTimeout(() => {
+            love.remove();
+        }, 6000);
+    }
+        setInterval(createLove, 300);
+</script>
+
+<body class="bg-gradient-krem min-h-screen py-16 px-5 overflow-x-hidden">
+    <div class="bg-utama-kremTua/40 py-3 mb-8 rounded-full overflow-hidden">
+        <p class="text-italic font-script text-xl whitespace-nowrap text-marquee text-netral-hitam">
+            <em>  ❤️‍🩹 I LOVE YOU REYY ❤️‍🩹 I MISS YOU SAYANG 🤍 YOU ARE MY EVERYTHING 🌹 FOREVER AND EVER 🌹 </em>
+        </p>
+    </div> 
+    <div class="max-w-5xl mx-auto fade-up">
+         <div id="loveBackground"></div>
+    
+    <div class="max-w-5xl mx-auto fade-up">
+        <div class="text-center mb-14">
+            <h1 class="font-italic text-[clamp(3rem,1vw,4.5rem)] text-netral-hitam font-bold mb-5 text-shadow-krem">
+                 UNTUK REYY TAMPANN
+                 <i class="fa fa-diamond text-utama-kremTua mr-3 pulse-soft"></i>
+                <div class="garis-berkilau"></div>
+            </h1>
+            </div>
+           <div class="text-center mb-14">
+            <p class="font-sans text-netral-hitam text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">              
+                haloo sayangkuu cintakuuu suamiikuu duniaakuu pacarkuu yg baik dan tampann, semogaa sayanggkuu inii dikelilingi hal baikk yyah cintakuu, trimakasi sekalii sudah mau memilihh akuu dari sekian banyaknya wanita diluaran sana akuu bersyukur sekalii semoga kedepanya kitaa bisaa sama-sama trus yyah sayangg...  akuu selalu menyukai semua hal tentang rey entah itu marahnyya tingkah lucunya sifat manjannyaa dia ngambek dia senengg sedih semua sifatmu kelakuanmu tu lucu dimataku reyy
+            </p>  
+           
+            <p class="font-script italic text-netral-abu text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">                
+                jadii ku buatkan ini untuk pria tampan berhati dingin ituu           
+            </p>
+
+            <div class="text-center mb-12 mt-4">
+                <p class="font-script text-netral-hitam text-lg md:text-xl max-w-1xl mx-auto leading-relaxed">                
+                    <em>SEMOGA SUKAA YAA</em>
+                </p>
+            </div>
+        </div>
+
+        <div class="glass rounded-[2.5rem] p-6 md:p-8 float-animation transition-all duration-500 hover:shadow-[0_100px_50px_rgba(0,0,0,0.15)]">
+            <div class="img-wrapper relative rounded-[1.8rem] overflow-hidden aspect-video border border-utama-kremTua/40 shadow-inner">
+                <div class="slide"><img src="https://i.imgur.com/6C7hGIL.jpeg"></div>
+                <div class="absolute top-4 left-4 w-16 h-16 border-t-2 border-l-2 border-utama-kremTua/70 rounded-tl-2xl z-10"></div>
+                <div class="absolute bottom-4 right-4 w-16 h-16 border-b-2 border-r-2 border-utama-kremTua/70 rounded-br-2xl z-10"></div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <h2 class="font-script text-[clamp(1.8rem,5vw,3.8rem)] text-netral-hitam mb-3 text-shadow-krem">
+                    eyy apaa tuu lucuu💗
+                </h2>
+            </div>
+            <div class="mt-3 text-center">
+                <p class="font-elegant text-netral-abu text-lg italic max-w-2xl mx-auto">
+                    "di hati tersimpan satu nama, hanya rey yang bikin rindu terasaa"  </p>
+            </div>
+        </div>
+
+       <div class="text-center mt-16">
+            <p class="font-script text-[clamp(1.5rem,4vw,2.2rem)] text-[#5C3D2E] font-semibold">
+                aku mau samaa reyy teruss🤎
+            </p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/628814533935?text=aloo sayangkuu" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-utama-kremTua hover:bg-utama-krem text-netral-hitam px-6 py-4 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.15)] bounce-wa transition-all duration-300 group">
+        <i class="fa fa-whatsapp text-4xl ring-wa"></i>
+        <span class="font-semibold opacity-100 group-hover:underline">Chat 💬</span>
+    </a>
+
+    <div class="max-w-3xl mx-auto mt-20">
+        <div class="bounceIn">
+            <h1 class="font-strong text-[clamp(1.9rem,6vw,3rem)] text-netral-hitam text-center mb-2 text-shadow-krem pulse-soft">
+                <strong> kiraa kiraa pria tampan ini ingatt tdak yyaa? 🤔</strong>
+            </h1>
+            <p class="text-center text-netral-abu mb-8 font-elegant">jawab yaa sayangkuu... 🤎</p>
+
+            <div id="quizArea" class="space-y-6">
+            </div>
+
+            <p id="hasilAkhir" class="text-center text-2xl mt-8 font-script text-netral-hitam"></p>
+        </div>
+    </div>
+
+    <div id="confetti"></div>
+    <div class="max-w-3xl mx-auto mt-20 mb-20">
+        <h1 class="font-script text-[clamp(2rem,6vw,3.5rem)] text-netral-hitam text-center mb-4 text-shadow-krem">
+           cinta berputarr putarr🎡
+        </h1>
+        <p class="text-center text-netral-abu mb-6 font-elegant"> 🎁putar bikin bingungg🎁</p>
+
+        <div class="wheel-container">
+            <div class="arrow"></div>
+            <div class="wheel" id="wheel">
+                <div class="wheel-item item1"><span class="item-text">100%</span></div>
+                <div class="wheel-item item2"><span class="item-text">1000%</span></div>
+                <div class="wheel-item item3"><span class="item-text">10000%</span></div>
+                <div class="wheel-item item4"><span class="item-text">100000%</span></div>
+                <div class="wheel-item item5"><span class="item-text">100000%</span></div>
+            </div>
+            <button class="center-btn" id="spinBtn" onclick="spin()">PUTAR 🎡</button>
+        </div>
+
+        <p id="hadiahText" class="text-center text-2xl mt-8 font-script text-netral-hitam"></p>
+    </div>
+
+    <script>
+        const soal = [
+            {
+                tanya: "Kapan tanggal jadian kita?",
+                pilihan: ["3-4 febuary", "19 Desember", "08 febuary", "16 maret"],
+                jawab: 2
+            },
+            {
+                tanya: "Makanan kesukaan aku?",
+                pilihan: ["kebab", "Mie Goreng", "cokelat", "Seblak"],
+                jawab: 2
+            },
+            {
+                tanya: "Siapa pria paling tampan sedunia?",
+                pilihan: ["eyang", "reyy", "joni", "onay"],
+                jawab: 1
+            },
+            {
+                tanya: "minuman kesukaan akuu??",
+                pilihan: ["matcha", "kopi", "teh", "susu cokelatt"],
+                jawab: 3
+            }
+        ];
+
+        let nomor = 0;
+        let skor = 0;
+        const area = document.getElementById('quizArea');
+        const hasilTxt = document.getElementById('hasilAkhir');
+
+        function tampilSoal() {
+            if(nomor < soal.length) {
+                let s = soal[nomor];
+                let html = `
+                    <div class="text-center fade-up">
+                        <h3 class="text-netral-hitam text-xl md:text-2xl font-elegant mb-6">${nomor+1}. ${s.tanya}</h3>
+                        <div class="grid grid-cols-1 gap-4">
+                `;
+                s.pilihan.forEach((p, i) => {
+                    html += `<button onclick="cekJawab(${i})" class="bg-utama-kremTua/70 hover:bg-utama-krem text-netral-hitam py-4 rounded-xl transition-all duration-300 text-lg">${p}</button>`;
+                });
+                html += `</div></div>`;
+                area.innerHTML = html;
+            } else {
+                selesai();
+            }
+        }
+
+        function cekJawab(j) {
+            if(j === soal[nomor].jawab) {
+                skor++;
+                alert("BENER BANGETT TAMPANN 🤎🤍");
+            } else {
+                alert("YEUHH PIKUN,ituu salah atuu sayangkuuu🙄 Jawabannya: " + soal[nomor].pilihan[soal[nomor].jawab]);
+            }
+            nomor++;
+            tampilSoal();
+        }
+
+        function selesai() {
+            area.innerHTML = "";
+            let pesan = "";
+            if(skor === soal.length) pesan = "WOOW SEMPURNA! 🥇 trnyataa masii ingett yya trimakasii sayanggg🥹🤍";
+            else if(skor >= 3) pesan = "KERENN! 🥈 Kamu sayang banget sama aku yya reyy?";
+            else pesan = "yyah aga pelupaa yya, tapii gapapa kok 😕 aku tetap sayang";
+            
+            hasilTxt.innerHTML = `${pesan}<br>Skor kamu: ${skor}/${soal.length} 🤎`;
+        }
+
+        tampilSoal();
+
+        const wheel = document.getElementById('wheel');
+        const spinBtn = document.getElementById('spinBtn');
+        const hadiahText = document.getElementById('hadiahText');
+        const hadiah = [ "100%", "1000%", "10000%", "100000%", "100000%"];
+        let spinning = false;
+        let currentRotation = 0;
+
+        function spin() {
+            if(spinning) return;
+            spinning = true;
+            spinBtn.innerHTML = "PUTAR... ⏳";
+            spinBtn.disabled = true;
+            hadiahText.innerHTML = "";
+
+            const randomDegree = Math.floor(Math.random() * 360) + 1440;
+            currentRotation += randomDegree;
+            wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+            setTimeout(() => {
+                spinning = false;
+                spinBtn.innerHTML = "PUTAR LAGI 🎡";
+                spinBtn.disabled = false;
+
+                const actualRotation = currentRotation % 360;
+                const normalizedAngle = (360 - actualRotation) % 360; 
+                const index = Math.floor(normalizedAngle / 72); 
+                
+                hadiahText.innerHTML = `SCROL BWH SAYANGG <span class="text-3xl">${hadiah[index]}</span>love u🤎`;
+                
+                launchConfetti();
+
+            }, 4000);
+        }
+
+        function launchConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            const emojis = ['🤎', '🤍', '✨', '🌹', '❤️‍🩹', '💐', '💖'];
+            
+            confettiContainer.innerHTML = '';
+            
+            for(let i=0; i<50; i++) {
+                setTimeout(() => {
+                    const e = document.createElement('div');
+                    e.classList.add('emoji-fall');
+                    e.style.left = Math.random() * 100 + '%';
+                    e.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    e.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    e.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                    confettiContainer.appendChild(e);
+                    
+                    setTimeout(() => {
+                        e.remove();
+                    }, 5000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+        <body>
+    <h1 class="contoh-judul">❤️‍🩹</h1>
+
+      <div class="animasi-pendamping">
+        <div class="lapisan-gradasi"></div>
+        
+        <div class="garis-utama">
+            <div class="efek-kilau"></div>
+        </div>
+
+        <div class="titik-aksen"></div>
+        <div class="titik-aksen"></div>
+        <div class="titik-aksen"></div>
+        <div class="titik-aksen"></div>
+    </div>
+   <p style="text-align: center; color: #2A2A2A; margin-top: 40px; opacity: 0.8;">
+       suka reyy...  </p>
+            
+</body>
+        <body>
+   <div class="gallery-shell">
+      <div class="slider-wrap" id="sliderWrap">
+        <button class="nav-btn prev" id="prevBtn" aria-label="Foto sebelumnya">&#10094;</button>
+        <div class="slider" id="slider">
+          <div class="slide"><img src="https://i.imgur.com/8Mjez55.jpeg" alt="Foto 1"><div class="slide-caption"><strong>REY</strong><span>mnusia tampan</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/OmfFYK3.jpeg" alt="Foto 2"><div class="slide-caption"><strong>REY</strong><span>ihh keren pacar akuu.</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/686wpjp.jpeg" alt="Foto 3"><div class="slide-caption"><strong>REY</strong><span>GANTENGG BANGETTT YYAA</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/jRaL8qW.jpeg" alt="Foto 4"><div class="slide-caption"><strong>REY</strong><span>hhii pap lucuu</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/T3lwWjZ.jpeg" alt="Foto 5"><div class="slide-caption"><strong>REY</strong><span>macoo cekalii tampann</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/bysairg.jpeg" alt="Foto 6"><div class="slide-caption"><strong>REY</strong><span>maniss sekliii</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/MLh8LAD.jpeg" alt="Foto 7"><div class="slide-caption"><strong>REY</strong><span>enakk nii buatt dipelukk</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/dNcuy5s.jpeg" alt="Foto 8"><div class="slide-caption"><strong>REY</strong><span>akuu sukaa sekalii samaa ini foto</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/4TVYRoQ.jpeg" alt="Foto 9"><div class="slide-caption"><strong>REY</strong><span>lucuuu lucuuu</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/EZhpd6X.jpeg" alt="Foto 10"><div class="slide-caption"><strong>REY</strong><span>HUHUU MAUU INIII</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/jRBBSdc.jpeg" alt="Foto 11"><div class="slide-caption"><strong>REY</strong><span>rey kaya bapak² bapak dari anak kita ntii</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/Z1ckFqZ.jpeg" alt="Foto 12"><div class="slide-caption"><strong>REY</strong><span>nii jugaa niii</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/qgnyFnT.jpeg" alt="Foto 13"><div class="slide-caption"><strong>REY</strong><span>maniss bgtt kayaa gula, sukaa</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/FvnSOD5.jpeg" alt="Foto 14"><div class="slide-caption"><strong>REYY</strong><span>whheheee, tampannn</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/IfhArB3.jpeg" alt="Foto 15"><div class="slide-caption"><strong>REY</strong><span>sayangg gantengg bgttt</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/iOr9Eyl.jpeg" alt="Foto 16"><div class="slide-caption"><strong>REY</strong><span>arghh when yya disampingg kamuu</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/uwvCqAy.jpeg" alt="Foto 17"><div class="slide-caption"><strong>REY</strong><span>dari padaa pegangg bantal mending pengang akuu</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/BPzx1d5.jpeg" alt="Foto 18"><div class="slide-caption"><strong>REYY</strong><span>tampann</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/csuZ0Nb.jpeg" alt="Foto 19"><div class="slide-caption"><strong>REY</strong><span>sigmaa sekaliii</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/K3HIrIi.jpeg" alt="Foto 20"><div class="slide-caption"><strong>REY</strong><span>terpancarr auraa² ceo mudaa aminn</span></div></div>
+          <div class="slide"><img src="https://i.imgur.com/id6HAoa.png" alt="Foto 20"><div class="slide-caption"><strong>REY</strong><span>asikk nii kapann sekamar barengg??</span></div></div>
+        </div>
+        <button class="nav-btn next" id="nextBtn" aria-label="Foto berikutnya">&#10095;</button>
+      </div>
+
+      <div class="thumbs" id="thumbs">
+        <button class="thumb active"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 1"></button>
+        <button class="thumb"><img src="https://i.imgur.com/yADTDSJ.jpeg" alt="Thumbnail 2"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 3"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 4"></button>
+        <button class="thumb"><img src="https://i.imgur.com/yADTDSJ.jpeg" alt="Thumbnail 5"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 6"></button>
+        <button class="thumb"><img src="https://i.imgur.com/yADTDSJ.jpeg" alt="Thumbnail 7"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 8"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 9"></button>
+        <button class="thumb"><img src="https://i.imgur.com/yADTDSJ.jpeg" alt="Thumbnail 10"></button>
+        <button class="thumb"><img src="https://i.imgur.com/yADTDSJ.jpeg" alt="Thumbnail 11"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 12"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 13"></button>
+        <button class="thumb"><img src="https://i.imgur.com/yADTDSJ.jpeg" alt="Thumbnail 14"></button>
+        <button class="thumb"><img src="https://i.imgur.com/yADTDSJ.jpeg" alt="Thumbnail 15"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 16"></button>
+        <button class="thumb"><img src="https://i.imgur.com/yADTDSJ.jpeg" alt="Thumbnail 17"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 18"></button>
+        <button class="thumb"><img src="https://i.imgur.com/yADTDSJ.jpeg" alt="Thumbnail 19"></button>
+        <button class="thumb"><img src="https://i.imgur.com/0hqQOHp.jpeg" alt="Thumbnail 20"></button>
+      </div>
+
+      <div class="counter">
+        <span id="counterText">Foto 1 dari 20</span>
+        <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    const thumbs = document.querySelectorAll('.thumb');
+    const counterText = document.getElementById('counterText');
+    const progressBar = document.getElementById('progressBar');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    function updateSlider(index) {
+      currentIndex = (index + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === currentIndex);
+      });
+      counterText.textContent = `Foto ${currentIndex + 1} dari ${totalSlides}`;
+      progressBar.style.width = `${((currentIndex + 1) / totalSlides) * 100}%`;
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => updateSlider(currentIndex - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => updateSlider(currentIndex + 1));
+
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => updateSlider(index));
+    });
+
+    let startX = 0;
+    let endX = 0;
+    const sliderWrap = document.getElementById('sliderWrap');
+
+    sliderWrap.addEventListener('touchstart', (e) => {
+      startX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    sliderWrap.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      const distance = endX - startX;
+      if (Math.abs(distance) > 45) {
+        if (distance < 0) {
+          updateSlider(currentIndex + 1);
+        } else {
+          updateSlider(currentIndex - 1);
+        }
+      }
+    }, { passive: true });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') updateSlider(currentIndex + 1);
+      if (e.key === 'ArrowLeft') updateSlider(currentIndex - 1);
+    });
+
+    updateSlider(0);
+  </script>
+</body>
+</html>
